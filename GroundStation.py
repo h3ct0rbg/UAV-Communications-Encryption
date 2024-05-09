@@ -4,7 +4,7 @@ import numpy as np
 import time
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QTextEdit
 from PyQt5.QtCore import QThread, pyqtSignal
-from cryptography.hazmat.primitives.asymmetric import dh
+from cryptography.hazmat.primitives.asymmetric import ec
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.backends import default_backend
@@ -12,28 +12,17 @@ from Crypto.Cipher import AES
 
 class DiffieHellman:
     def __init__(self):
-        try:
-            self.parameters = dh.generate_parameters(generator=2, key_size=2048, backend=default_backend())
-            self.private_key = self.parameters.generate_private_key()
-            self.public_key = self.private_key.public_key()
-        except Exception as e:
-            print("Failed to initialize Diffie-Hellman parameters:", e)
-            raise
+        # Usar curvas elípticas para la generación de claves
+        self.private_key = ec.generate_private_key(ec.SECP384R1(), default_backend())
+        self.public_key = self.private_key.public_key()
 
     def generate_shared_secret(self, other_public_key_bytes):
-        try:
-            other_public_key = serialization.load_pem_public_key(other_public_key_bytes, backend=default_backend())
-            return self.private_key.exchange(other_public_key)
-        except Exception as e:
-            print("Failed to generate shared secret:", e)
-            raise
+        other_public_key = serialization.load_pem_public_key(other_public_key_bytes, backend=default_backend())
+        return self.private_key.exchange(ec.ECDH(), other_public_key)
 
     def derive_key(self, shared_secret):
-        try:
-            return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b'handshake data', backend=default_backend()).derive(shared_secret)
-        except Exception as e:
-            print("Failed to derive encryption key:", e)
-            raise
+        # Utilizar HKDF para derivar una clave útil del secreto compartido
+        return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b'handshake data', backend=default_backend()).derive(shared_secret)
 
 class GroundStationGUI(QWidget):
     def __init__(self):
@@ -76,11 +65,7 @@ class GroundStation(QThread):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.address = ('localhost', 5001)
         self.target_address = ('localhost', 5000)
-        try:
-            self.sock.bind(self.address)
-        except socket.error as e:
-            print("Socket binding failed:", e)
-            raise
+        self.sock.bind(self.address)
         self.key = None
         self.gui = gui
         self.update_encrypted_signal.connect(self.gui.update_encrypted_matrix_display)
@@ -88,12 +73,13 @@ class GroundStation(QThread):
 
     def init_connection(self):
         try:
-            params_pem = self.dh.parameters.parameter_bytes(encoding=serialization.Encoding.PEM, format=serialization.ParameterFormat.PKCS3)
-            public_key_pem = self.dh.public_key.public_bytes(encoding=serialization.Encoding.PEM, format=serialization.PublicFormat.SubjectPublicKeyInfo)
-            self.sock.sendto(params_pem + public_key_pem, self.target_address)
-            print("DH parameters and public key sent to UAV.")
+            public_key_pem = self.dh.public_key.public_bytes(
+                encoding=serialization.Encoding.PEM,
+                format=serialization.PublicFormat.SubjectPublicKeyInfo)
+            self.sock.sendto(public_key_pem, self.target_address)
+            print("ECDH public key sent to UAV.")
         except Exception as e:
-            print("Failed to send DH parameters and public key:", e)
+            print("Failed to send ECDH public key:", e)
 
     def run(self):
         self.init_connection()
