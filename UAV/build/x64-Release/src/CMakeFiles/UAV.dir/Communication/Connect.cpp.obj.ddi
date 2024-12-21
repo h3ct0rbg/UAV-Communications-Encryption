@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "src\\CMakeFiles\\UAV.dir\\Communication\\Connect.cpp.obj",
+            "outputs": [
+                "D:\\UAH\\TFG\\UAV\\build\\x64-Release\\vc140.pdb",
+                "src\\CMakeFiles\\UAV.dir\\Communication\\Connect.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

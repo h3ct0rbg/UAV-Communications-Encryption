@@ -1,0 +1,19 @@
+ninja_dyndep_version = 1.0
+build src\CMakeFiles\UAV.dir\main.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\Telemetry\CameraSensor.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\D.A.S\DataAcquisition.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\D.A.S\DataFrame.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\Cipher\FrameQueue.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\Cipher\Cipher.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\Communication\Connect.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\Communication\MessageQueue.cpp.obj: dyndep
+
+build src\CMakeFiles\UAV.dir\Communication\Sender.cpp.obj: dyndep
+
