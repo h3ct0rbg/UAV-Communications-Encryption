@@ -1,0 +1,23 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "RelWithDebInfo",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "D:/UAH/TFG/GCS/build/x64-Release/src",
+	"dir-cur-src" : "D:/UAH/TFG/GCS/src",
+	"dir-top-bld" : "D:/UAH/TFG/GCS/build/x64-Release",
+	"dir-top-src" : "D:/UAH/TFG/GCS",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"D:\\UAH\\TFG\\GCS\\include",
+		"D:\\UAH\\TFG\\GCS\\third_party\\opencv\\build\\include",
+		"D:\\UAH\\TFG\\UAV\\third_party\\openssl\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "D:/UAH/TFG/GCS/build/x64-Release/src/CMakeFiles/GCS.dir"
+}

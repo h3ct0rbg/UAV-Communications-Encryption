@@ -1,0 +1,22 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "build\\x64-Debug",
+      "out\\install\\x64-Debug",
+      "build\\x64-Release",
+      "out\\install\\x64-Release"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Communication",
+    "\\third_party\\opencv",
+    "\\third_party\\opencv\\sources",
+    "\\third_party\\opencv\\sources\\samples",
+    "\\third_party\\opencv\\sources\\samples\\winrt",
+    "\\third_party\\opencv\\sources\\samples\\winrt\\FaceDetection"
+  ],
+  "SelectedNode": "\\src\\main.cpp",
+  "PreviewInSolutionExplorer": false
+}

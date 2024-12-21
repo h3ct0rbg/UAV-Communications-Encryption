@@ -1,0 +1,17 @@
+ninja_dyndep_version = 1.0
+build src\CMakeFiles\GCS.dir\main.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\D.A.S\DataAcquisition.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\D.A.S\DataFrame.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\Cypher\FrameQueue.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\Cypher\Decipher.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\Communication\Connect.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\Communication\MessageQueue.cpp.obj: dyndep
+
+build src\CMakeFiles\GCS.dir\Communication\Receiver.cpp.obj: dyndep
+

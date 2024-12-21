@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "src\\CMakeFiles\\GCS.dir\\Cypher\\FrameQueue.cpp.obj",
+            "outputs": [
+                "D:\\UAH\\TFG\\GCS\\build\\x64-Debug\\vc140.pdb",
+                "src\\CMakeFiles\\GCS.dir\\Cypher\\FrameQueue.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+D:/UAH/TFG/GCS/build/x64-Release/CMakeFiles/edit_cache.dir
+D:/UAH/TFG/GCS/build/x64-Release/CMakeFiles/rebuild_cache.dir
+D:/UAH/TFG/GCS/build/x64-Release/src/CMakeFiles/GCS.dir
+D:/UAH/TFG/GCS/build/x64-Release/src/CMakeFiles/edit_cache.dir
+D:/UAH/TFG/GCS/build/x64-Release/src/CMakeFiles/rebuild_cache.dir
+D:/UAH/TFG/GCS/build/x64-Release/third_party/CMakeFiles/edit_cache.dir
+D:/UAH/TFG/GCS/build/x64-Release/third_party/CMakeFiles/rebuild_cache.dir
